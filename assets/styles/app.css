@@ -1,0 +1,151 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Sidebar (Genres) */
+#sidebar {
+    margin-bottom: 40px;
+}
+
+#sidebar h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar ul li a {
+    font-size: 18px;
+    text-decoration: none;
+    color: #007bff; /* Bootstrap Blue */
+    padding: 10px 0;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Search Input and Autocomplete */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#movie-search {
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+
+#movie-search:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#autocomplete-results {
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#autocomplete-results li {
+    padding: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+#autocomplete-results li:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Movie List */
+.movie-list {
+    list-style: none;
+    padding: 0;
+}
+
+.movie-list li {
+    font-size: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.movie-list li:hover {
+    background-color: #f8f9fa;
+}
+
+.movie-list li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Best Movie Section */
+#best-movie {
+    margin-top: 40px;
+}
+
+#best-movie h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+#best-movie p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-bottom: 20px;
+    }
+
+    .input-group, .movie-list, #best-movie {
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}

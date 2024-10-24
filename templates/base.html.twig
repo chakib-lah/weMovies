@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}We Movies{% endblock %}</title>
+    {{ encore_entry_link_tags('app') }} {# Link to compiled CSS #}
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar with genres -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="position-sticky">
+                    <h3>Genres</h3>
+                    <ul class="nav flex-column">
+                        {% block sidebar %}
+                            <!-- Genre links will be inserted here -->
+                        {% endblock %}
+                    </ul>
+                </div>
+            </nav>
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">{% block page_title %}Movies{% endblock %}</h1>
+                    <!-- Search Bar -->
+                    <div class="input-group">
+                        <input type="text" id="movie-search" class="form-control" placeholder="Search for movies...">
+                    </div>
+
+                    <ul id="autocomplete-results" class="list-group"></ul>
+
+                </div>
+                {% block content %}
+                    <!-- Content will be inserted here -->
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    {{ encore_entry_script_tags('app') }} {# Link to compiled JavaScript #}
+</body>
 </html>

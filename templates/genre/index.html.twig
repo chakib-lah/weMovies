@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block sidebar %}
+    {% for genre in genres %}
+        <li class="nav-item">
+            <a href="{{ path('movies_by_genre', {id: genre.id}) }}" class="nav-link">
+                {{ genre.name }}
+            </a>
+        </li>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Best Movie</h3>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ bestMovie.title }}</h5>
+                    <p class="card-text">{{ bestMovie.overview }}</p>
+                    {% if bestMovie.trailerUrl %}
+                    <video controls width="100%">
+                        <source src="{{ bestMovie.trailerUrl }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    {% else %}
+                        <p>No trailer available for this movie.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
